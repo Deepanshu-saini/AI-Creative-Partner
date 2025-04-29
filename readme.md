@@ -6,7 +6,7 @@ A powerful AI-powered application that transforms text descriptions into stunnin
 
 - **Text-to-Image Generation**: Convert your creative ideas into beautiful images
 - **Image-to-3D Conversion**: Transform generated images into interactive 3D models
-- **Local LLM Integration**: Powered by DeepSeek or Llama for intelligent prompt understanding
+- **Local LLM Integration**: Powered by Llama for intelligent prompt understanding
 - **Modern Web Interface**: Beautiful Streamlit UI for easy interaction
 - **Memory System**: Track and recall your previous creations
 - **Advanced Options**: Control style and quality of generations
@@ -14,21 +14,21 @@ A powerful AI-powered application that transforms text descriptions into stunnin
 ## 🛠️ Technical Stack
 
 - **Backend**:
-  - Python 3.8+
+  - Python 3.9+ (excluding 3.9.7) or Python 3.12
   - Openfabric SDK
-  - Local LLM (DeepSeek/Llama)
+  - Local LLM (Llama)
   - Poetry for dependency management
 
 - **Frontend**:
   - Streamlit
   - Pillow for image processing
-  - Model-viewer for 3D visualization
+  - Web-based 3D model viewer
 
 ## 📦 Installation
 
 ### Prerequisites
 
-- Python 3.8 or higher
+- Python 3.9+ (excluding 3.9.7) or Python 3.12
 - Poetry package manager
 - Git
 - At least 8GB RAM (16GB recommended)
@@ -42,9 +42,12 @@ git clone <repository-url>
 cd AI-test
 ```
 
-2. Create and activate a virtual environment:
+2. Create and activate a virtual environment in the project root:
 ```bash
+# Create virtual environment
 python -m venv venv
+
+# Activate virtual environment
 # On Windows
 venv\Scripts\activate
 # On Linux/Mac
@@ -65,17 +68,18 @@ mkdir models
 ```
 
 2. Download the required model:
-   - llama-2-7b-chat.Q4_K_M.gguf
+   - Download `llama-2-7b-chat.Q4_K_M.gguf` from the official source
 
 3. Place the downloaded model file in the `models` directory:
    - The model file should be in `.gguf` format
+   - Rename it to `model` for consistency
 
 4. Verify the model setup:
    - The `models` directory should contain:
      ```
      models/
-     ├── model            # Your downloaded model file
-     └── README.md        # Model information
+     ├── model           # Your downloaded model file
+     └── README.md       # Model information
      ```
 
 ## 🚀 Running the Application
@@ -88,9 +92,11 @@ Run the main application that provides the API endpoints:
 
 ```bash
 # On Windows
-start.sh
+cd app
+start.bat
 
 # On Linux/Mac
+cd app
 ./start.sh
 ```
 
@@ -102,9 +108,11 @@ Run the Streamlit interface:
 
 ```bash
 # On Windows
+cd app
 run_streamlit.bat
 
 # On Linux/Mac
+cd app
 chmod +x run_streamlit.sh
 ./run_streamlit.sh
 ```
@@ -153,18 +161,20 @@ The web interface will be available at `http://localhost:8501`
 ## 📁 Project Structure
 
 ```
-AI-test/
-├── app/
-│   ├── main.py              # Main application logic
-│   ├── streamlit_app.py     # Web interface
-│   ├── pyproject.toml       # Dependencies
-│   └── run_streamlit.sh     # Run script
-├── models/                  # Local LLM models
-│   ├── model               # Downloaded model file
-│   └── README.md           # Model information
-├── generated_images/        # Generated image storage
-├── generated_models/        # Generated 3D model storage
-└── readme.md               # This documentation
+AI-test/                  # Project root
+├── venv/                 # Virtual environment
+├── app/                  # Application code
+│   ├── main.py          # Main application logic
+│   ├── streamlit_app.py # Web interface
+│   ├── pyproject.toml   # Dependencies
+│   ├── start.bat        # Windows startup script
+│   └── start.sh         # Linux/Mac startup script
+├── models/              # Local LLM models
+│   ├── model           # Downloaded model file
+│   └── README.md       # Model information
+├── generated_images/    # Generated image storage
+├── generated_models/    # Generated 3D model storage
+└── readme.md           # This documentation
 ```
 
 ## 🔧 Configuration
