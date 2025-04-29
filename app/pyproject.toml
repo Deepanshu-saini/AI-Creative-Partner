@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "ai-test"
+version = "1.0"
+description = "An application for text-to-3D generation using LLaMA and Openfabric"
+authors = ["Rockstar"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+openfabric-pysdk = "^0.3.0"
+llama-cpp-python = "^0.2.6"
+python-dotenv = "^1.0.0"
+requests = "^2.31.0"
+tqdm = "^4.66.1"
+streamlit = "^1.32.0"
+Pillow = "^10.2.0"
+model-viewer = "^0.0.1"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[[tool.poetry.source]]
+name = "node2"
+url = "https://repo.node2.openfabric.network/index"
+priority = "supplemental"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

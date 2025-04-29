@@ -1,0 +1,92 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+ENV/
+env/
+.env
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Project specific
+*.log
+*.sqlite
+*.db
+
+# API Keys and Secrets
+.env
+.env.local
+.env.*.local
+config.ini
+secrets.json
+
+# Openfabric specific
+openfabric_credentials.json
+openfabric_config.json
+
+# LLM Models - Only ignore large model files
+models/*.bin
+models/*.gguf
+models/*.pth
+models/*.pt
+models/*.ckpt
+!models/README.md  # Allow README in models directory
+
+# Generated content - Allow pushing but ignore temporary files
+generated_images/*.tmp
+generated_images/*.temp
+generated_models/*.tmp
+generated_models/*.temp
+!generated_images/README.md
+!generated_models/README.md
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# Documentation
+docs/_build/
+site/
+
+# Test coverage
+.coverage
+htmlcov/
+.pytest_cache/
+.tox/
+
+# Distribution
+*.tar.gz
+*.zip
+*.rar
+*.7z 
