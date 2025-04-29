@@ -50,20 +50,29 @@ openfabric_credentials.json
 openfabric_config.json
 
 # LLM Models - Only ignore large model files
-models/*.bin
-models/*.gguf
-models/*.pth
-models/*.pt
-models/*.ckpt
-!models/README.md  # Allow README in models directory
+app/models/*.bin
+app/models/*.gguf
+app/models/*.pth
+app/models/*.pt
+app/models/*.ckpt
+!app/models/README.md  # Allow README in models directory
 
 # Generated content - Allow pushing but ignore temporary files
-generated_images/*.tmp
-generated_images/*.temp
-generated_models/*.tmp
-generated_models/*.temp
-!generated_images/README.md
-!generated_models/README.md
+app/generated_images/*.png
+app/generated_images/*.jpg
+app/generated_images/*.jpeg
+app/generated_images/*.tmp
+app/generated_images/*.temp
+app/generated_models/*.glb
+app/generated_models/*.gltf
+app/generated_models/*.obj
+app/generated_models/*.tmp
+app/generated_models/*.temp
+!app/generated_images/README.md
+!app/generated_models/README.md
+
+# Memory database
+app/memory.db
 
 # Temporary files
 *.tmp

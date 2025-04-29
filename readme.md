@@ -62,22 +62,23 @@ poetry install
 
 ### Model Setup
 
-1. Create a `models` directory in the project root:
+1. The `models` directory is located inside the `app` directory:
 ```bash
+cd app
 mkdir models
 ```
 
 2. Download the required model:
    - Download `llama-2-7b-chat.Q4_K_M.gguf` from the official source
 
-3. Place the downloaded model file in the `models` directory:
+3. Place the downloaded model file in the `app/models` directory:
    - The model file should be in `.gguf` format
    - Rename it to `model` for consistency
 
 4. Verify the model setup:
-   - The `models` directory should contain:
+   - The `app/models` directory should contain:
      ```
-     models/
+     app/models/
      ├── model           # Your downloaded model file
      └── README.md       # Model information
      ```
@@ -136,8 +137,8 @@ The web interface will be available at `http://localhost:8501`
    - Recent creations are stored in the sidebar
 
 4. **File Storage**:
-   - Generated images are saved in `generated_images/`
-   - 3D models are saved in `generated_models/`
+   - Generated images are saved in `app/generated_images/`
+   - 3D models are saved in `app/generated_models/`
 
 ## 🧠 How It Works
 
@@ -168,12 +169,12 @@ AI-test/                  # Project root
 │   ├── streamlit_app.py # Web interface
 │   ├── pyproject.toml   # Dependencies
 │   ├── start.bat        # Windows startup script
-│   └── start.sh         # Linux/Mac startup script
-├── models/              # Local LLM models
-│   ├── model           # Downloaded model file
-│   └── README.md       # Model information
-├── generated_images/    # Generated image storage
-├── generated_models/    # Generated 3D model storage
+│   ├── start.sh         # Linux/Mac startup script
+│   ├── models/          # Local LLM models
+│   │   ├── model       # Downloaded model file
+│   │   └── README.md   # Model information
+│   ├── generated_images/ # Generated image storage
+│   └── generated_models/ # Generated 3D model storage
 └── readme.md           # This documentation
 ```
 
