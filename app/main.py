@@ -2,7 +2,7 @@ import logging
 import os
 import sqlite3
 from datetime import datetime
-from typing import Dict
+from typing import Dict, Optional
 from llama_cpp import Llama
 
 from ontology_dc8f06af066e4a7880a5938933236037.config import ConfigClass
@@ -15,7 +15,7 @@ from core.stub import Stub
 configurations: Dict[str, ConfigClass] = dict()
 
 # Initialize LLaMA model
-def init_llm():
+def init_llm() -> Optional[Llama]:
     model_path = "models/llama-2-7b-chat.Q4_K_M.gguf"  # Path to your local model
     if not os.path.exists(model_path):
         logging.error(f"Model file not found at {model_path}")
@@ -38,7 +38,7 @@ def init_llm():
 llm_model = init_llm()
 
 # Initialize SQLite database for memory
-def init_db():
+def init_db() -> None:
     conn = sqlite3.connect('memory.db')
     c = conn.cursor()
     c.execute('''CREATE TABLE IF NOT EXISTS generations
@@ -119,7 +119,7 @@ def expand_prompt(prompt: str) -> str:
         logging.error(f"Error in prompt expansion: {str(e)}")
         return f"A highly detailed, photorealistic image of {prompt} with dramatic lighting and rich textures"
 
-def save_to_memory(prompt: str, expanded_prompt: str, image_path: str, model_path: str):
+def save_to_memory(prompt: str, expanded_prompt: str, image_path: str, model_path: str) -> None:
     """
     Saves the generation details to the SQLite database.
     """
